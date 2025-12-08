@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPSWORTH | Industrial AI for the Rest of Us</title>
+    <meta name="description" content="AI-powered operations intelligence for oil & gas companies. Working applications, not platforms. Deploy in hours, not months. Free to start.">
+    <meta name="keywords" content="industrial ai, oil gas software, predictive maintenance, field ticketing, document intelligence, maximo integration">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="OPSWORTH | Industrial AI for the Rest of Us">
+    <meta property="og:description" content="AI-powered operations intelligence for oil & gas. Deploy in hours, not months.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://opsworth.com">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'petroleum': '#0f172a',
+                        'ops-blue': '#1e40af',
+                        'safety-orange': '#f97316',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .animate-delay-100 { animation-delay: 0.1s; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-300 { animation-delay: 0.3s; }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stat counter */
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Button hover effects */
+        .btn-primary {
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+        }
+
+        /* Card hover */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="/" class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-petroleum rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">O</span>
+                    </div>
+                    <span class="font-bold text-xl text-petroleum">OPSWORTH</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#products" class="text-slate-600 hover:text-ops-blue transition-colors">Products</a>
+                    <a href="#how-it-works" class="text-slate-600 hover:text-ops-blue transition-colors">How It Works</a>
+                    <a href="#pricing" class="text-slate-600 hover:text-ops-blue transition-colors">Pricing</a>
+                    <a href="#contact" class="bg-ops-blue text-white px-4 py-2 rounded-lg btn-primary">Get Started</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#products" class="block text-slate-600 hover:text-ops-blue">Products</a>
+                <a href="#how-it-works" class="block text-slate-600 hover:text-ops-blue">How It Works</a>
+                <a href="#pricing" class="block text-slate-600 hover:text-ops-blue">Pricing</a>
+                <a href="#contact" class="block bg-ops-blue text-white px-4 py-2 rounded-lg text-center">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-slate-50 to-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-petroleum mb-6 animate-fade-in-up">
+                    Industrial AI for the Rest of Us
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-600 mb-8 animate-fade-in-up animate-delay-100">
+                    AI-powered operations intelligence for oil & gas companies.
+                    <span class="text-ops-blue font-semibold">Working applications</span>, not platforms.
+                    Deploy in hours, not months.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in-up animate-delay-200">
+                    <a href="#contact" class="bg-ops-blue text-white px-8 py-4 rounded-lg text-lg font-semibold btn-primary">
+                        Get Started Free
+                    </a>
+                    <a href="https://github.com/opsworth/opsworth-oss" target="_blank" class="bg-white text-petroleum border-2 border-petroleum px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50 transition-colors">
+                        View on GitHub
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500 animate-fade-in-up animate-delay-300">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Self-hosted
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Integrates with Maximo, SAP
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Open Core
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-16 md:py-24 bg-petroleum text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">The Hidden Cost of Operational Chaos</h2>
+                <p class="text-xl text-slate-300">Every day, oil & gas operations hemorrhage value through:</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Problem 1 -->
+                <div class="bg-slate-800/50 rounded-xl p-6 reveal">
+                    <div class="text-4xl mb-4">📝</div>
+                    <h3 class="text-xl font-bold mb-3 text-safety-orange">Poor Data Quality</h3>
+                    <p class="text-slate-300 mb-4">"Pump fixed" tells you nothing.</p>
+                    <p class="text-slate-400 text-sm">
+                        Field tickets with vague descriptions, missing equipment IDs, and no failure codes
+                        make your maintenance data useless. Your Maximo is only as good as what goes into it.
+                    </p>
+                </div>
+
+                <!-- Problem 2 -->
+                <div class="bg-slate-800/50 rounded-xl p-6 reveal">
+                    <div class="text-4xl mb-4">📚</div>
+                    <h3 class="text-xl font-bold mb-3 text-safety-orange">Buried Knowledge</h3>
+                    <p class="text-slate-300 mb-4">The answer exists. Good luck finding it.</p>
+                    <p class="text-slate-400 text-sm">
+                        50,000+ documents across EDMS, SharePoint, and filing cabinets. Procedures, manuals,
+                        and P&IDs that no one can find when they need them most. Average search time: 45 minutes.
+                    </p>
+                </div>
+
+                <!-- Problem 3 -->
+                <div class="bg-slate-800/50 rounded-xl p-6 reveal">
+                    <div class="text-4xl mb-4">⚠️</div>
+                    <h3 class="text-xl font-bold mb-3 text-safety-orange">Reactive Maintenance</h3>
+                    <p class="text-slate-300 mb-4">You find out about failures after they happen.</p>
+                    <p class="text-slate-400 text-sm">
+                        Equipment logs and historian data full of warning signs — but no one has time to look.
+                        Unplanned downtime costs 3-5x more than planned maintenance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 reveal">
+                <p class="text-xl">
+                    The result? <span class="text-safety-orange font-bold">$1.5M+ per year</span> in preventable costs for a typical operation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-petroleum mb-4">AI That Understands Your Operations</h2>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+                    OPSWORTH is an AI layer that sits on top of your existing systems—enhancing everything, replacing nothing.
+                </p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-8 md:p-12 max-w-3xl mx-auto reveal">
+                <div class="text-center">
+                    <p class="text-2xl font-semibold text-petroleum mb-4">
+                        "Enhance your existing systems. Replace nothing."
+                    </p>
+                    <p class="text-slate-600">
+                        Your team keeps using the tools they know. OPSWORTH adds the intelligence layer.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 md:py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-petroleum mb-4">One Platform. Complete Operational Intelligence.</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- SAFETY -->
+                <div class="bg-white rounded-xl p-6 shadow-sm card-hover reveal">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-petroleum mb-2">SAFETY</h3>
+                    <p class="text-slate-600 mb-4">AI-powered incident management and JSA generation. Track observations, near-misses, and compliance.</p>
+                    <span class="inline-flex items-center text-sm text-green-600 font-medium">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                        Complete
+                    </span>
+                </div>
+
+                <!-- PREDICT -->
+                <div class="bg-white rounded-xl p-6 shadow-sm card-hover reveal">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-petroleum mb-2">PREDICT</h3>
+                    <p class="text-slate-600 mb-4">Know what will fail before it fails. Remaining useful life estimation and failure probability scoring.</p>
+                    <span class="inline-flex items-center text-sm text-green-600 font-medium">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                        Complete
+                    </span>
+                </div>
+
+                <!-- INSPECT -->
+                <div class="bg-white rounded-xl p-6 shadow-sm card-hover reveal">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-petroleum mb-2">INSPECT</h3>
+                    <p class="text-slate-600 mb-4">Photo + voice = inspection reports. AI-powered defect detection and thickness trending.</p>
+                    <span class="inline-flex items-center text-sm text-green-600 font-medium">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                        Complete
+                    </span>
+                </div>
+
+                <!-- DOCS -->
+                <div class="bg-white rounded-xl p-6 shadow-sm card-hover reveal">
+                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-petroleum mb-2">DOCS</h3>
+                    <p class="text-slate-600 mb-4">Ask questions, get answers with sources. AI search across all your technical documents.</p>
+                    <span class="inline-flex items-center text-sm text-green-600 font-medium">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                        Complete
+                    </span>
+                </div>
+
+                <!-- VOICE/TICKETING -->
+                <div class="bg-white rounded-xl p-6 shadow-sm card-hover reveal">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-petroleum mb-2">VOICE</h3>
+                    <p class="text-slate-600 mb-4">Just talk. Your ticket is done. Voice-first field ticketing with AI entity extraction.</p>
+                    <span class="inline-flex items-center text-sm text-amber-600 font-medium">
+                        <span class="w-2 h-2 bg-amber-500 rounded-full mr-2"></span>
+                        In Development
+                    </span>
+                </div>
+
+                <!-- LOGS -->
+                <div class="bg-white rounded-xl p-6 shadow-sm card-hover reveal">
+                    <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-petroleum mb-2">LOGS</h3>
+                    <p class="text-slate-600 mb-4">See anomalies before they become failures. AI analysis of SCADA and historian data.</p>
+                    <span class="inline-flex items-center text-sm text-amber-600 font-medium">
+                        <span class="w-2 h-2 bg-amber-500 rounded-full mr-2"></span>
+                        In Development
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 md:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-petroleum mb-4">From Chaos to Clarity in Three Steps</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center reveal">
+                    <div class="w-16 h-16 bg-ops-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="text-xl font-bold text-petroleum mb-2">Connect</h3>
+                    <p class="text-slate-600 mb-2">Upload CSV or connect to existing systems. Your data stays where it is.</p>
+                    <p class="text-sm text-ops-blue font-medium">Timeline: Days</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center reveal">
+                    <div class="w-16 h-16 bg-ops-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="text-xl font-bold text-petroleum mb-2">Learn</h3>
+                    <p class="text-slate-600 mb-2">AI learns your equipment, vocabulary, documents, and operational patterns.</p>
+                    <p class="text-sm text-ops-blue font-medium">Timeline: 2-4 weeks</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center reveal">
+                    <div class="w-16 h-16 bg-ops-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="text-xl font-bold text-petroleum mb-2">Transform</h3>
+                    <p class="text-slate-600 mb-2">Your teams get AI tools: voice ticketing, document Q&A, predictive alerts.</p>
+                    <p class="text-sm text-ops-blue font-medium">Timeline: Immediate value</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 md:py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-petroleum mb-4">The Numbers That Matter</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white rounded-xl p-6 text-center reveal">
+                    <div class="text-4xl md:text-5xl font-bold text-ops-blue mb-2 stat-number" data-end="75" data-suffix="%">75%</div>
+                    <p class="text-slate-600 text-sm">Reduction in ticket disputes</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 text-center reveal">
+                    <div class="text-4xl md:text-5xl font-bold text-ops-blue mb-2">45m→30s</div>
+                    <p class="text-slate-600 text-sm">Document search time</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 text-center reveal">
+                    <div class="text-4xl md:text-5xl font-bold text-ops-blue mb-2">10x</div>
+                    <p class="text-slate-600 text-sm">Better failure data</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 text-center reveal">
+                    <div class="text-4xl md:text-5xl font-bold text-ops-blue mb-2">7-10x</div>
+                    <p class="text-slate-600 text-sm">First year ROI</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 max-w-2xl mx-auto reveal">
+                <h3 class="font-bold text-petroleum mb-4">For a typical 50-person field operation:</h3>
+                <ul class="space-y-2 text-slate-600 mb-4">
+                    <li class="flex justify-between"><span>Billing disputes saved:</span> <span class="font-semibold">$400K</span></li>
+                    <li class="flex justify-between"><span>Unplanned downtime saved:</span> <span class="font-semibold">$300K</span></li>
+                    <li class="flex justify-between"><span>Document search time saved:</span> <span class="font-semibold">$200K</span></li>
+                    <li class="flex justify-between"><span>Repeated failures prevented:</span> <span class="font-semibold">$100K</span></li>
+                </ul>
+                <div class="border-t pt-4">
+                    <div class="flex justify-between text-xl font-bold text-petroleum">
+                        <span>Annual Value:</span>
+                        <span class="text-safety-orange">$1M+</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="pricing" class="py-16 md:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-petroleum mb-4">Why Companies Choose OPSWORTH</h2>
+            </div>
+
+            <div class="overflow-x-auto reveal">
+                <table class="w-full bg-white rounded-xl overflow-hidden shadow-sm">
+                    <thead class="bg-slate-50">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-slate-600"></th>
+                            <th class="px-6 py-4 text-left text-slate-600">Enterprise Platforms</th>
+                            <th class="px-6 py-4 text-left text-ops-blue font-bold">OPSWORTH</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Time to Value</td>
+                            <td class="px-6 py-4 text-slate-600">6-12 months</td>
+                            <td class="px-6 py-4 text-ops-blue font-semibold">Hours to days</td>
+                        </tr>
+                        <tr class="bg-slate-50/50">
+                            <td class="px-6 py-4 font-medium">Minimum Cost</td>
+                            <td class="px-6 py-4 text-slate-600">$500K+/year</td>
+                            <td class="px-6 py-4 text-ops-blue font-semibold">Free (open core)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">What You Get</td>
+                            <td class="px-6 py-4 text-slate-600">Platform + consulting</td>
+                            <td class="px-6 py-4 text-ops-blue font-semibold">Working applications</td>
+                        </tr>
+                        <tr class="bg-slate-50/50">
+                            <td class="px-6 py-4 font-medium">Data Location</td>
+                            <td class="px-6 py-4 text-slate-600">Their cloud</td>
+                            <td class="px-6 py-4 text-ops-blue font-semibold">Your infrastructure</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Primary User</td>
+                            <td class="px-6 py-4 text-slate-600">Data teams</td>
+                            <td class="px-6 py-4 text-ops-blue font-semibold">Operations engineers</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-16 md:py-24 bg-petroleum text-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 reveal">Ready to See What Your Data Can Do?</h2>
+            <p class="text-xl text-slate-300 mb-8 reveal">
+                We're working with select partners to bring OPSWORTH to market. Join the early access program.
+            </p>
+
+            <div class="bg-slate-800/50 rounded-2xl p-8 reveal">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" name="name" placeholder="Name" required
+                               class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue">
+                        <input type="email" name="email" placeholder="Email" required
+                               class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue">
+                    </div>
+                    <input type="text" name="company" placeholder="Company"
+                           class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue">
+                    <textarea name="challenge" placeholder="What's your biggest operational challenge?" rows="3"
+                              class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue"></textarea>
+                    <button type="submit" class="w-full bg-safety-orange text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors btn-primary">
+                        Request Early Access
+                    </button>
+                </form>
+            </div>
+
+            <p class="mt-8 text-slate-400 reveal">
+                Or email us directly: <a href="mailto:hello@opsworth.com" class="text-safety-orange hover:underline">hello@opsworth.com</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                            <span class="text-petroleum font-bold text-sm">O</span>
+                        </div>
+                        <span class="font-bold text-xl">OPSWORTH</span>
+                    </div>
+                    <p class="text-slate-400 text-sm">Industrial AI for the Rest of Us</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2 text-slate-400 text-sm">
+                        <li><a href="#" class="hover:text-white">SAFETY</a></li>
+                        <li><a href="#" class="hover:text-white">PREDICT</a></li>
+                        <li><a href="#" class="hover:text-white">INSPECT</a></li>
+                        <li><a href="#" class="hover:text-white">DOCS</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-slate-400 text-sm">
+                        <li><a href="#" class="hover:text-white">About</a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Careers</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-slate-400 text-sm">
+                        <li><a href="mailto:hello@opsworth.com" class="hover:text-white">hello@opsworth.com</a></li>
+                        <li><a href="https://github.com/opsworth" target="_blank" class="hover:text-white">GitHub</a></li>
+                        <li><a href="#" class="hover:text-white">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
+                <p>&copy; 2025 OPSWORTH. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="privacy.html" class="hover:text-white">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactions -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Stat counter animation (simplified)
+        const animateStats = () => {
+            document.querySelectorAll('.stat-number[data-end]').forEach(stat => {
+                const end = parseInt(stat.dataset.end);
+                const suffix = stat.dataset.suffix || '';
+                let current = 0;
+                const increment = end / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= end) {
+                        stat.textContent = end + suffix;
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + suffix;
+                    }
+                }, 30);
+            });
+        };
+
+        // Trigger stat animation when visible
+        const statsSection = document.querySelector('.stat-number');
+        if (statsSection) {
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    animateStats();
+                    observer.disconnect();
+                }
+            }, { threshold: 0.5 });
+            observer.observe(statsSection.parentElement);
+        }
+    </script>
+</body>
+</html>
