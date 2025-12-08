@@ -142,44 +142,61 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-slate-50 to-white">
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="text-center max-w-3xl mx-auto">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-petroleum mb-6 animate-fade-in-up">
-                    Industrial AI for the Rest of Us
-                </h1>
-                <p class="text-xl md:text-2xl text-slate-600 mb-8 animate-fade-in-up animate-delay-100">
-                    AI-powered operations intelligence for oil & gas companies.
-                    <span class="text-ops-blue font-semibold">Working applications</span>, not platforms.
-                    Deploy in hours, not months.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in-up animate-delay-200">
-                    <a href="#contact" class="bg-ops-blue text-white px-8 py-4 rounded-lg text-lg font-semibold btn-primary">
-                        Get Started Free
-                    </a>
-                    <a href="https://github.com/opsworth/opsworth-oss" target="_blank" class="bg-white text-petroleum border-2 border-petroleum px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50 transition-colors">
-                        View on GitHub
-                    </a>
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="text-center lg:text-left">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-petroleum mb-6 animate-fade-in-up">
+                        Industrial AI for the Rest of Us
+                    </h1>
+                    <p class="text-xl md:text-2xl text-slate-600 mb-8 animate-fade-in-up animate-delay-100">
+                        AI-powered operations intelligence for oil & gas companies.
+                        <span class="text-ops-blue font-semibold">Working applications</span>, not platforms.
+                        Deploy in hours, not months.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 animate-fade-in-up animate-delay-200">
+                        <a href="#contact" class="bg-ops-blue text-white px-8 py-4 rounded-lg text-lg font-semibold btn-primary">
+                            Get Started Free
+                        </a>
+                        <a href="https://github.com/opsworth/opsworth-oss" target="_blank" class="bg-white text-petroleum border-2 border-petroleum px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50 transition-colors">
+                            View on GitHub
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-slate-500 animate-fade-in-up animate-delay-300">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Self-hosted
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Integrates with Maximo, SAP
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Open Core
+                        </span>
+                    </div>
                 </div>
-                <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500 animate-fade-in-up animate-delay-300">
-                    <span class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                        Self-hosted
-                    </span>
-                    <span class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                        Integrates with Maximo, SAP
-                    </span>
-                    <span class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                        Open Core
-                    </span>
+
+                <!-- Hero Image -->
+                <div class="relative animate-fade-in-up animate-delay-200">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="assets/images/ControlRoom.jpeg"
+                             alt="Control room operator monitoring industrial systems at sunset"
+                             class="w-full h-auto object-cover">
+                        <!-- Gradient overlay for text readability -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-petroleum/20 to-transparent"></div>
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-safety-orange/20 rounded-full blur-2xl"></div>
+                    <div class="absolute -top-4 -left-4 w-32 h-32 bg-ops-blue/20 rounded-full blur-2xl"></div>
                 </div>
             </div>
         </div>
