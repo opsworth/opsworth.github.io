@@ -602,7 +602,7 @@
                     <a href="#products" class="nav-link text-slate-600 hover:text-ops-blue transition-colors">Products</a>
                     <a href="#how-it-works" class="nav-link text-slate-600 hover:text-ops-blue transition-colors">How It Works</a>
                     <a href="#compare" class="nav-link text-slate-600 hover:text-ops-blue transition-colors">Compare</a>
-                    <a href="#contact" class="bg-ops-blue text-white px-4 py-2 rounded-lg btn-primary">Get Started</a>
+                    <a href="#contact" class="bg-ops-blue text-white px-4 py-2 rounded-lg btn-primary">Let's Talk</a>
                 </div>
 
                 <!-- Mobile menu button -->
@@ -620,7 +620,7 @@
                 <a href="#products" class="block text-slate-600 hover:text-ops-blue">Products</a>
                 <a href="#how-it-works" class="block text-slate-600 hover:text-ops-blue">How It Works</a>
                 <a href="#compare" class="block text-slate-600 hover:text-ops-blue">Compare</a>
-                <a href="#contact" class="block bg-ops-blue text-white px-4 py-2 rounded-lg text-center">Get Started</a>
+                <a href="#contact" class="block bg-ops-blue text-white px-4 py-2 rounded-lg text-center">Let's Talk</a>
             </div>
         </div>
     </nav>
@@ -641,7 +641,7 @@
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 animate-fade-in-up animate-delay-200">
                         <a href="#contact" class="bg-ops-blue text-white px-8 py-4 rounded-lg text-lg font-semibold btn-primary">
-                            Get Started Free
+                            Join Us
                         </a>
                         <a href="https://github.com/opsworth/opsworth-oss" target="_blank" class="btn-secondary bg-white text-petroleum border-2 border-petroleum px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50">
                             View on GitHub
@@ -1004,9 +1004,12 @@
     <!-- CTA Section -->
     <section id="contact" class="py-16 md:py-24 bg-petroleum text-white">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 reveal">Ready to See What Your Data Can Do?</h2>
-            <p class="text-xl text-slate-300 mb-8 reveal">
-                We're working with select partners to bring OPSWORTH to market. Join the early access program.
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 reveal">Let's Build This Together</h2>
+            <p class="text-xl text-slate-300 mb-4 reveal">
+                OPSWORTH is in active development. The core platform will be open source.
+            </p>
+            <p class="text-lg text-slate-400 mb-8 reveal">
+                We're looking for pilot partners in oil & gas operations who want to shape what this becomes. Whether you're an operator with real problems to solve, a technology partner, or just curious about what we're building - we'd love to hear from you.
             </p>
 
             <div class="bg-slate-800/50 rounded-2xl p-8 reveal">
@@ -1022,7 +1025,7 @@
                     <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
                     <!-- Formspree settings -->
-                    <input type="hidden" name="_subject" value="OPSWORTH Early Access Request">
+                    <input type="hidden" name="_subject" value="OPSWORTH Interest">
                     <input type="hidden" name="_next" value="https://opsworth.com/thank-you.html">
 
                     <div class="grid md:grid-cols-2 gap-4">
@@ -1031,12 +1034,20 @@
                         <input type="email" name="email" placeholder="Work Email" required
                                class="input-animated w-full px-4 py-3 rounded-lg bg-slate-700 border-2 border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue focus:bg-slate-600">
                     </div>
-                    <input type="text" name="company" placeholder="Company"
+                    <input type="text" name="company" placeholder="Company / Organization"
                            class="input-animated w-full px-4 py-3 rounded-lg bg-slate-700 border-2 border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue focus:bg-slate-600">
-                    <textarea name="challenge" placeholder="What's your biggest operational challenge?" rows="3"
+                    <select name="interest" required
+                            class="input-animated w-full px-4 py-3 rounded-lg bg-slate-700 border-2 border-slate-600 text-white focus:outline-none focus:border-ops-blue focus:bg-slate-600">
+                        <option value="" disabled selected class="text-slate-400">What brings you here?</option>
+                        <option value="pilot">Interested in being a pilot partner</option>
+                        <option value="technology">Technology / integration partnership</option>
+                        <option value="opensource">Following the open source project</option>
+                        <option value="curious">Just curious about OPSWORTH</option>
+                    </select>
+                    <textarea name="message" placeholder="Tell us a bit about yourself or what you're looking for (optional)" rows="3"
                               class="input-animated w-full px-4 py-3 rounded-lg bg-slate-700 border-2 border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue focus:bg-slate-600 resize-none"></textarea>
                     <button type="submit" class="w-full bg-safety-orange text-white px-8 py-4 rounded-lg text-lg font-semibold btn-primary cta-glow">
-                        Request Early Access
+                        Get in Touch
                     </button>
                 </form>
             </div>
