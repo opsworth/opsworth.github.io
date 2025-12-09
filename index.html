@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OPSWORTH | Industrial AI for the Rest of Us</title>
+    <title>OPSWORTH | Industrial AI That Just Works</title>
     <meta name="description" content="AI-powered operations intelligence for oil & gas companies. Working applications, not platforms. Deploy in hours, not months. Free to start.">
     <meta name="keywords" content="industrial ai, oil gas software, predictive maintenance, field ticketing, document intelligence, maximo integration">
 
@@ -24,7 +24,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="OPSWORTH | Industrial AI for the Rest of Us">
+    <meta name="twitter:title" content="OPSWORTH | Industrial AI That Just Works">
     <meta name="twitter:description" content="AI-powered operations intelligence for oil & gas. Deploy in hours, not months.">
 
     <!-- Tailwind CSS via CDN -->
@@ -368,6 +368,213 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
+        /* ========== PROBLEM SECTION MICRO-INTERACTIONS ========== */
+
+        /* Glassmorphism problem cards */
+        .problem-card {
+            position: relative;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.6));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.1), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .problem-card:hover::before {
+            left: 100%;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(249, 115, 22, 0.3);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(249, 115, 22, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animated icon container */
+        .problem-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(249, 115, 22, 0.05));
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .problem-icon::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            background: conic-gradient(from 0deg, transparent, rgba(249, 115, 22, 0.4), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+            animation: iconSpin 3s linear infinite paused;
+        }
+
+        .problem-card:hover .problem-icon::after {
+            opacity: 1;
+            animation-play-state: running;
+        }
+
+        @keyframes iconSpin {
+            to { transform: rotate(360deg); }
+        }
+
+        .problem-card:hover .problem-icon {
+            transform: scale(1.1) rotate(-5deg);
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(249, 115, 22, 0.1));
+            box-shadow: 0 8px 24px rgba(249, 115, 22, 0.3);
+        }
+
+        /* Icon emoji bounce */
+        .problem-emoji {
+            font-size: 28px;
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .problem-card:hover .problem-emoji {
+            transform: scale(1.2);
+            animation: emojiWiggle 0.5s ease;
+        }
+
+        @keyframes emojiWiggle {
+            0%, 100% { transform: scale(1.2) rotate(0deg); }
+            25% { transform: scale(1.2) rotate(-10deg); }
+            75% { transform: scale(1.2) rotate(10deg); }
+        }
+
+        /* Problem title underline animation */
+        .problem-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .problem-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f97316, #fb923c);
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 2px;
+        }
+
+        .problem-card:hover .problem-title::after {
+            width: 100%;
+        }
+
+        /* Quote highlight effect */
+        .problem-quote {
+            position: relative;
+            padding-left: 16px;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover .problem-quote {
+            border-left-color: #f97316;
+            padding-left: 20px;
+        }
+
+        /* Staggered card reveal */
+        .problem-card:nth-child(1) { transition-delay: 0.1s; }
+        .problem-card:nth-child(2) { transition-delay: 0.2s; }
+        .problem-card:nth-child(3) { transition-delay: 0.3s; }
+
+        /* Cost callout animation */
+        .cost-callout {
+            position: relative;
+            display: inline-block;
+        }
+
+        .cost-callout .cost-amount {
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .cost-callout:hover .cost-amount {
+            transform: scale(1.1);
+            text-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
+        }
+
+        /* Floating particles in problem section */
+        .problem-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(249, 115, 22, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 15s infinite linear;
+        }
+
+        .problem-particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .problem-particle:nth-child(2) { left: 20%; animation-delay: -3s; }
+        .problem-particle:nth-child(3) { left: 30%; animation-delay: -6s; }
+        .problem-particle:nth-child(4) { left: 60%; animation-delay: -9s; }
+        .problem-particle:nth-child(5) { left: 80%; animation-delay: -12s; }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Section heading shimmer */
+        .shimmer-text {
+            background: linear-gradient(
+                90deg,
+                #ffffff 0%,
+                #ffffff 40%,
+                #f97316 50%,
+                #ffffff 60%,
+                #ffffff 100%
+            );
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmerText 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmerText {
+            0%, 100% { background-position: 100% 0; }
+            50% { background-position: 0% 0; }
+        }
+
         /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
@@ -480,42 +687,55 @@
     </section>
 
     <!-- Problem Section -->
-    <section class="py-16 md:py-24 bg-petroleum text-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <section class="py-16 md:py-24 bg-petroleum text-white problem-section">
+        <!-- Floating particles -->
+        <div class="problem-particle"></div>
+        <div class="problem-particle"></div>
+        <div class="problem-particle"></div>
+        <div class="problem-particle"></div>
+        <div class="problem-particle"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
             <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">The Hidden Cost of Operational Chaos</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">The Hidden Cost of <span class="shimmer-text">Operational Chaos</span></h2>
                 <p class="text-xl text-slate-300">Every day, oil & gas operations hemorrhage value through:</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Problem 1 -->
-                <div class="bg-slate-800/50 rounded-xl p-6 reveal">
-                    <div class="text-4xl mb-4">📝</div>
-                    <h3 class="text-xl font-bold mb-3 text-safety-orange">Poor Data Quality</h3>
-                    <p class="text-slate-300 mb-4">"Pump fixed" tells you nothing.</p>
-                    <p class="text-slate-400 text-sm">
+                <div class="problem-card rounded-2xl p-6 reveal">
+                    <div class="problem-icon mb-5">
+                        <span class="problem-emoji">📝</span>
+                    </div>
+                    <h3 class="problem-title text-xl font-bold mb-3 text-safety-orange">Poor Data Quality</h3>
+                    <p class="problem-quote text-slate-300 mb-4 italic">"Pump fixed" tells you nothing.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
                         Field tickets with vague descriptions, missing equipment IDs, and no failure codes
                         make your maintenance data useless. Your Maximo is only as good as what goes into it.
                     </p>
                 </div>
 
                 <!-- Problem 2 -->
-                <div class="bg-slate-800/50 rounded-xl p-6 reveal">
-                    <div class="text-4xl mb-4">📚</div>
-                    <h3 class="text-xl font-bold mb-3 text-safety-orange">Buried Knowledge</h3>
-                    <p class="text-slate-300 mb-4">The answer exists. Good luck finding it.</p>
-                    <p class="text-slate-400 text-sm">
+                <div class="problem-card rounded-2xl p-6 reveal">
+                    <div class="problem-icon mb-5">
+                        <span class="problem-emoji">📚</span>
+                    </div>
+                    <h3 class="problem-title text-xl font-bold mb-3 text-safety-orange">Buried Knowledge</h3>
+                    <p class="problem-quote text-slate-300 mb-4 italic">The answer exists. Good luck finding it.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
                         50,000+ documents across EDMS, SharePoint, and filing cabinets. Procedures, manuals,
                         and P&IDs that no one can find when they need them most. Average search time: 45 minutes.
                     </p>
                 </div>
 
                 <!-- Problem 3 -->
-                <div class="bg-slate-800/50 rounded-xl p-6 reveal">
-                    <div class="text-4xl mb-4">⚠️</div>
-                    <h3 class="text-xl font-bold mb-3 text-safety-orange">Reactive Maintenance</h3>
-                    <p class="text-slate-300 mb-4">You find out about failures after they happen.</p>
-                    <p class="text-slate-400 text-sm">
+                <div class="problem-card rounded-2xl p-6 reveal">
+                    <div class="problem-icon mb-5">
+                        <span class="problem-emoji">⚠️</span>
+                    </div>
+                    <h3 class="problem-title text-xl font-bold mb-3 text-safety-orange">Reactive Maintenance</h3>
+                    <p class="problem-quote text-slate-300 mb-4 italic">You find out about failures after they happen.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
                         Equipment logs and historian data full of warning signs — but no one has time to look.
                         Unplanned downtime costs 3-5x more than planned maintenance.
                     </p>
@@ -523,8 +743,8 @@
             </div>
 
             <div class="text-center mt-12 reveal">
-                <p class="text-xl">
-                    The result? <span class="text-safety-orange font-bold">$1.5M+ per year</span> in preventable costs for a typical operation.
+                <p class="text-xl cost-callout">
+                    The result? <span class="cost-amount text-safety-orange font-bold text-2xl">$1.5M+ per year</span> in preventable costs for a typical operation.
                 </p>
             </div>
         </div>
@@ -835,7 +1055,7 @@
                     <div class="flex items-center mb-4">
                         <img src="assets/images/LogoOnly.svg" alt="OPSWORTH" class="h-10 w-auto brightness-0 invert">
                     </div>
-                    <p class="text-slate-400 text-sm">Industrial AI for the Rest of Us</p>
+                    <p class="text-slate-400 text-sm">Industrial AI That Just Works</p>
                 </div>
 
                 <div>
