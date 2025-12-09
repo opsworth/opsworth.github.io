@@ -7,11 +7,25 @@
     <meta name="description" content="AI-powered operations intelligence for oil & gas companies. Working applications, not platforms. Deploy in hours, not months. Free to start.">
     <meta name="keywords" content="industrial ai, oil gas software, predictive maintenance, field ticketing, document intelligence, maximo integration">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
+    <link rel="manifest" href="assets/images/icons/site.webmanifest">
+    <meta name="theme-color" content="#0f172a">
+
     <!-- Open Graph -->
     <meta property="og:title" content="OPSWORTH | Industrial AI for the Rest of Us">
     <meta property="og:description" content="AI-powered operations intelligence for oil & gas. Deploy in hours, not months.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://opsworth.com">
+    <meta property="og:image" content="https://opsworth.com/assets/images/icons/android-chrome-512x512.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OPSWORTH | Industrial AI for the Rest of Us">
+    <meta name="twitter:description" content="AI-powered operations intelligence for oil & gas. Deploy in hours, not months.">
 
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -106,11 +120,8 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <a href="/" class="flex items-center space-x-2">
-                    <div class="w-8 h-8 bg-petroleum rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-sm">O</span>
-                    </div>
-                    <span class="font-bold text-xl text-petroleum">OPSWORTH</span>
+                <a href="/" class="flex items-center">
+                    <img src="assets/images/Logo.svg" alt="OPSWORTH" class="h-8 w-auto">
                 </a>
 
                 <!-- Desktop Nav -->
@@ -513,11 +524,25 @@
             </p>
 
             <div class="bg-slate-800/50 rounded-2xl p-8 reveal">
+                <!--
+                    SETUP INSTRUCTIONS:
+                    1. Go to https://formspree.io and sign up
+                    2. Create a new form, set email to hello@opsworth.com
+                    3. Replace YOUR_FORM_ID below with your form ID (e.g., xyzabcde)
+                    4. Enable reCAPTCHA in Formspree dashboard for extra protection
+                -->
                 <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+                    <!-- Honeypot field - hidden from humans, bots fill it out -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <!-- Formspree settings -->
+                    <input type="hidden" name="_subject" value="OPSWORTH Early Access Request">
+                    <input type="hidden" name="_next" value="https://opsworth.com/thank-you.html">
+
                     <div class="grid md:grid-cols-2 gap-4">
                         <input type="text" name="name" placeholder="Name" required
                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue">
-                        <input type="email" name="email" placeholder="Email" required
+                        <input type="email" name="email" placeholder="Work Email" required
                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue">
                     </div>
                     <input type="text" name="company" placeholder="Company"
@@ -541,11 +566,8 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                            <span class="text-petroleum font-bold text-sm">O</span>
-                        </div>
-                        <span class="font-bold text-xl">OPSWORTH</span>
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/LogoOnly.svg" alt="OPSWORTH" class="h-10 w-auto brightness-0 invert">
                     </div>
                     <p class="text-slate-400 text-sm">Industrial AI for the Rest of Us</p>
                 </div>
