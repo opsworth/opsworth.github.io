@@ -16,7 +16,7 @@
     <meta name="theme-color" content="#0f172a">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="OPSWORTH | Industrial AI for the Rest of Us">
+    <meta property="og:title" content="OPSWORTH | Industrial AI That Just Works">
     <meta property="og:description" content="AI-powered operations intelligence for oil & gas. Deploy in hours, not months.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://opsworth.com">
@@ -48,7 +48,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -56,25 +56,107 @@
             }
         }
 
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(249, 115, 22, 0.5); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
         .animate-fade-in-up {
-            animation: fadeInUp 0.6s ease forwards;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in-down {
+            animation: fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
         }
 
         .animate-delay-100 { animation-delay: 0.1s; }
         .animate-delay-200 { animation-delay: 0.2s; }
         .animate-delay-300 { animation-delay: 0.3s; }
+        .animate-delay-400 { animation-delay: 0.4s; }
+        .animate-delay-500 { animation-delay: 0.5s; }
 
         /* Scroll animations */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Staggered children animation */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .stagger-children.active > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
 
         /* Stat counter */
         .stat-number {
@@ -86,28 +168,211 @@
             scroll-behavior: smooth;
         }
 
-        /* Button hover effects */
+        /* Button hover effects with ripple */
         .btn-primary {
-            transition: all 0.2s ease;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Card hover */
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+        }
+
+        /* Secondary button effects */
+        .btn-secondary {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.15);
+        }
+
+        /* Card hover with 3D tilt effect */
         .card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-12px) rotateX(2deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-hover:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-icon {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Glow effect on cards */
+        .card-glow {
+            position: relative;
+        }
+
+        .card-glow::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(249, 115, 22, 0.1));
+            pointer-events: none;
+        }
+
+        .card-glow:hover::after {
+            opacity: 1;
+        }
+
+        /* Input focus effects */
+        .input-animated {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 2px solid transparent;
+        }
+
+        .input-animated:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.15);
+            border-color: #1e40af;
+        }
+
+        /* Navigation effects */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #1e40af, #f97316);
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Logo hover effect */
+        .logo-hover {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .logo-hover:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-hover:hover img {
+            filter: drop-shadow(0 4px 12px rgba(249, 115, 22, 0.3));
+        }
+
+        /* Hero image parallax-like effect */
+        .hero-image-container {
+            transition: transform 0.3s ease-out;
+        }
+
+        /* Step number pulse */
+        .step-number {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .step-number:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(30, 64, 175, 0.4);
+        }
+
+        /* Table row hover */
+        .table-row-hover {
             transition: all 0.3s ease;
         }
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+        .table-row-hover:hover {
+            background-color: rgba(30, 64, 175, 0.05);
+        }
+
+        /* CTA section glow */
+        .cta-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        /* Shimmer effect for loading states */
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        /* Footer link hover */
+        .footer-link {
+            transition: all 0.2s ease;
+        }
+
+        .footer-link:hover {
+            transform: translateX(4px);
+            color: #f97316;
+        }
+
+        /* Icon bounce on parent hover */
+        .icon-bounce-parent:hover .icon-bounce {
+            animation: bounce-subtle 0.6s ease infinite;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            animation: float 2s ease-in-out infinite;
+        }
+
+        /* Smooth gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #1e40af, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation scroll state */
+        .nav-scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
         /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
         }
@@ -120,16 +385,16 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <a href="/" class="flex items-center gap-2">
-                    <img src="assets/images/LogoOnly.svg" alt="" class="h-9 md:h-10 w-auto">
+                <a href="/" class="flex items-center gap-2 logo-hover">
+                    <img src="assets/images/LogoOnly.svg" alt="" class="h-9 md:h-10 w-auto transition-all duration-300">
                     <span class="font-bold text-xl md:text-2xl text-petroleum tracking-tight">OPSWORTH</span>
                 </a>
 
                 <!-- Desktop Nav -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#products" class="text-slate-600 hover:text-ops-blue transition-colors">Products</a>
-                    <a href="#how-it-works" class="text-slate-600 hover:text-ops-blue transition-colors">How It Works</a>
-                    <a href="#pricing" class="text-slate-600 hover:text-ops-blue transition-colors">Pricing</a>
+                    <a href="#products" class="nav-link text-slate-600 hover:text-ops-blue transition-colors">Products</a>
+                    <a href="#how-it-works" class="nav-link text-slate-600 hover:text-ops-blue transition-colors">How It Works</a>
+                    <a href="#pricing" class="nav-link text-slate-600 hover:text-ops-blue transition-colors">Pricing</a>
                     <a href="#contact" class="bg-ops-blue text-white px-4 py-2 rounded-lg btn-primary">Get Started</a>
                 </div>
 
@@ -160,7 +425,7 @@
                 <!-- Text Content -->
                 <div class="text-center lg:text-left">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-petroleum mb-6 animate-fade-in-up">
-                        Industrial AI for the Rest of Us
+                        Industrial AI That Just Works
                     </h1>
                     <p class="text-xl md:text-2xl text-slate-600 mb-8 animate-fade-in-up animate-delay-100">
                         AI-powered operations intelligence for oil & gas companies.
@@ -171,7 +436,7 @@
                         <a href="#contact" class="bg-ops-blue text-white px-8 py-4 rounded-lg text-lg font-semibold btn-primary">
                             Get Started Free
                         </a>
-                        <a href="https://github.com/opsworth/opsworth-oss" target="_blank" class="bg-white text-petroleum border-2 border-petroleum px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50 transition-colors">
+                        <a href="https://github.com/opsworth/opsworth-oss" target="_blank" class="btn-secondary bg-white text-petroleum border-2 border-petroleum px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50">
                             View on GitHub
                         </a>
                     </div>
@@ -198,17 +463,17 @@
                 </div>
 
                 <!-- Hero Image -->
-                <div class="relative animate-fade-in-up animate-delay-200">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                <div class="relative animate-fade-in-up animate-delay-200 hero-image-container">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)] hover:-translate-y-2">
                         <img src="assets/images/ControlRoom.jpeg"
                              alt="Control room operator monitoring industrial systems at sunset"
-                             class="w-full h-auto object-cover">
+                             class="w-full h-auto object-cover transition-transform duration-700 hover:scale-105">
                         <!-- Gradient overlay for text readability -->
                         <div class="absolute inset-0 bg-gradient-to-t from-petroleum/20 to-transparent"></div>
                     </div>
-                    <!-- Decorative elements -->
-                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-safety-orange/20 rounded-full blur-2xl"></div>
-                    <div class="absolute -top-4 -left-4 w-32 h-32 bg-ops-blue/20 rounded-full blur-2xl"></div>
+                    <!-- Decorative elements with floating animation -->
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-safety-orange/20 rounded-full blur-2xl animate-float"></div>
+                    <div class="absolute -top-4 -left-4 w-32 h-32 bg-ops-blue/20 rounded-full blur-2xl animate-float" style="animation-delay: -3s;"></div>
                 </div>
             </div>
         </div>
@@ -297,8 +562,8 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- SAFETY -->
-                <div class="bg-white rounded-xl p-6 shadow-sm card-hover reveal">
-                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <div class="bg-white rounded-xl p-6 shadow-sm card-hover card-glow reveal">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 card-icon">
                         <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                         </svg>
@@ -312,8 +577,8 @@
                 </div>
 
                 <!-- PREDICT -->
-                <div class="bg-white rounded-xl p-6 shadow-sm card-hover reveal">
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <div class="bg-white rounded-xl p-6 shadow-sm card-hover card-glow reveal">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 card-icon">
                         <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                         </svg>
@@ -327,8 +592,8 @@
                 </div>
 
                 <!-- INSPECT -->
-                <div class="bg-white rounded-xl p-6 shadow-sm card-hover reveal">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <div class="bg-white rounded-xl p-6 shadow-sm card-hover card-glow reveal">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 card-icon">
                         <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
                         </svg>
@@ -342,8 +607,8 @@
                 </div>
 
                 <!-- DOCS -->
-                <div class="bg-white rounded-xl p-6 shadow-sm card-hover reveal">
-                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                <div class="bg-white rounded-xl p-6 shadow-sm card-hover card-glow reveal">
+                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4 card-icon">
                         <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
@@ -357,8 +622,8 @@
                 </div>
 
                 <!-- VOICE/TICKETING -->
-                <div class="bg-white rounded-xl p-6 shadow-sm card-hover reveal">
-                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <div class="bg-white rounded-xl p-6 shadow-sm card-hover card-glow reveal">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4 card-icon">
                         <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
                         </svg>
@@ -372,8 +637,8 @@
                 </div>
 
                 <!-- LOGS -->
-                <div class="bg-white rounded-xl p-6 shadow-sm card-hover reveal">
-                    <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
+                <div class="bg-white rounded-xl p-6 shadow-sm card-hover card-glow reveal">
+                    <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4 card-icon">
                         <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                         </svg>
@@ -398,25 +663,25 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Step 1 -->
-                <div class="text-center reveal">
-                    <div class="w-16 h-16 bg-ops-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
-                    <h3 class="text-xl font-bold text-petroleum mb-2">Connect</h3>
+                <div class="text-center reveal group">
+                    <div class="w-16 h-16 bg-ops-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 step-number cursor-pointer">1</div>
+                    <h3 class="text-xl font-bold text-petroleum mb-2 group-hover:text-ops-blue transition-colors">Connect</h3>
                     <p class="text-slate-600 mb-2">Upload CSV or connect to existing systems. Your data stays where it is.</p>
                     <p class="text-sm text-ops-blue font-medium">Timeline: Days</p>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="text-center reveal">
-                    <div class="w-16 h-16 bg-ops-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
-                    <h3 class="text-xl font-bold text-petroleum mb-2">Learn</h3>
+                <div class="text-center reveal group">
+                    <div class="w-16 h-16 bg-ops-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 step-number cursor-pointer">2</div>
+                    <h3 class="text-xl font-bold text-petroleum mb-2 group-hover:text-ops-blue transition-colors">Learn</h3>
                     <p class="text-slate-600 mb-2">AI learns your equipment, vocabulary, documents, and operational patterns.</p>
                     <p class="text-sm text-ops-blue font-medium">Timeline: 2-4 weeks</p>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="text-center reveal">
-                    <div class="w-16 h-16 bg-ops-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
-                    <h3 class="text-xl font-bold text-petroleum mb-2">Transform</h3>
+                <div class="text-center reveal group">
+                    <div class="w-16 h-16 bg-ops-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 step-number cursor-pointer">3</div>
+                    <h3 class="text-xl font-bold text-petroleum mb-2 group-hover:text-ops-blue transition-colors">Transform</h3>
                     <p class="text-slate-600 mb-2">Your teams get AI tools: voice ticketing, document Q&A, predictive alerts.</p>
                     <p class="text-sm text-ops-blue font-medium">Timeline: Immediate value</p>
                 </div>
@@ -542,15 +807,15 @@
 
                     <div class="grid md:grid-cols-2 gap-4">
                         <input type="text" name="name" placeholder="Name" required
-                               class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue">
+                               class="input-animated w-full px-4 py-3 rounded-lg bg-slate-700 border-2 border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue focus:bg-slate-600">
                         <input type="email" name="email" placeholder="Work Email" required
-                               class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue">
+                               class="input-animated w-full px-4 py-3 rounded-lg bg-slate-700 border-2 border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue focus:bg-slate-600">
                     </div>
                     <input type="text" name="company" placeholder="Company"
-                           class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue">
+                           class="input-animated w-full px-4 py-3 rounded-lg bg-slate-700 border-2 border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue focus:bg-slate-600">
                     <textarea name="challenge" placeholder="What's your biggest operational challenge?" rows="3"
-                              class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue"></textarea>
-                    <button type="submit" class="w-full bg-safety-orange text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors btn-primary">
+                              class="input-animated w-full px-4 py-3 rounded-lg bg-slate-700 border-2 border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-ops-blue focus:bg-slate-600 resize-none"></textarea>
+                    <button type="submit" class="w-full bg-safety-orange text-white px-8 py-4 rounded-lg text-lg font-semibold btn-primary cta-glow">
                         Request Early Access
                     </button>
                 </form>
@@ -576,29 +841,29 @@
                 <div>
                     <h4 class="font-semibold mb-4">Products</h4>
                     <ul class="space-y-2 text-slate-400 text-sm">
-                        <li><a href="#" class="hover:text-white">SAFETY</a></li>
-                        <li><a href="#" class="hover:text-white">PREDICT</a></li>
-                        <li><a href="#" class="hover:text-white">INSPECT</a></li>
-                        <li><a href="#" class="hover:text-white">DOCS</a></li>
+                        <li><a href="#products" class="footer-link inline-block">SAFETY</a></li>
+                        <li><a href="#products" class="footer-link inline-block">PREDICT</a></li>
+                        <li><a href="#products" class="footer-link inline-block">INSPECT</a></li>
+                        <li><a href="#products" class="footer-link inline-block">DOCS</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="font-semibold mb-4">Company</h4>
                     <ul class="space-y-2 text-slate-400 text-sm">
-                        <li><a href="#" class="hover:text-white">About</a></li>
-                        <li><a href="#" class="hover:text-white">Blog</a></li>
-                        <li><a href="#" class="hover:text-white">Careers</a></li>
-                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                        <li><a href="#" class="footer-link inline-block">About</a></li>
+                        <li><a href="#" class="footer-link inline-block">Blog</a></li>
+                        <li><a href="#" class="footer-link inline-block">Careers</a></li>
+                        <li><a href="#contact" class="footer-link inline-block">Contact</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="font-semibold mb-4">Connect</h4>
                     <ul class="space-y-2 text-slate-400 text-sm">
-                        <li><a href="mailto:hello@opsworth.com" class="hover:text-white">hello@opsworth.com</a></li>
-                        <li><a href="https://github.com/opsworth" target="_blank" class="hover:text-white">GitHub</a></li>
-                        <li><a href="#" class="hover:text-white">LinkedIn</a></li>
+                        <li><a href="mailto:hello@opsworth.com" class="footer-link inline-block">hello@opsworth.com</a></li>
+                        <li><a href="https://github.com/opsworth" target="_blank" class="footer-link inline-block">GitHub</a></li>
+                        <li><a href="#" class="footer-link inline-block">LinkedIn</a></li>
                     </ul>
                 </div>
             </div>
@@ -615,59 +880,112 @@
 
     <!-- JavaScript for interactions -->
     <script>
-        // Mobile menu toggle
+        // Mobile menu toggle with animation
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const nav = document.querySelector('nav');
 
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            // Animate hamburger icon
+            mobileMenuBtn.classList.toggle('rotate-90');
         });
 
-        // Scroll reveal animation
-        const revealElements = document.querySelectorAll('.reveal');
+        // Navigation scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            // Add shadow on scroll
+            if (currentScroll > 50) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Enhanced scroll reveal with stagger
+        const revealElements = document.querySelectorAll('.reveal, .reveal-scale, .stagger-children');
 
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
-            revealElements.forEach(el => {
+            revealElements.forEach((el, index) => {
                 const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    el.classList.add('active');
+                const delay = el.dataset.delay || 0;
+
+                if (elementTop < windowHeight - 80) {
+                    setTimeout(() => {
+                        el.classList.add('active');
+                    }, delay);
                 }
             });
         };
 
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
+        // Throttle scroll event for performance
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    revealOnScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
 
-        // Smooth scroll for anchor links
+        window.addEventListener('load', () => {
+            revealOnScroll();
+            // Trigger initial animations
+            document.body.classList.add('loaded');
+        });
+
+        // Smooth scroll for anchor links with offset for fixed nav
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const offset = 80; // Account for fixed nav
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+
                     // Close mobile menu if open
                     mobileMenu.classList.add('hidden');
                 }
             });
         });
 
-        // Stat counter animation (simplified)
+        // Enhanced stat counter animation with easing
+        const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
         const animateStats = () => {
             document.querySelectorAll('.stat-number[data-end]').forEach(stat => {
                 const end = parseInt(stat.dataset.end);
                 const suffix = stat.dataset.suffix || '';
-                let current = 0;
-                const increment = end / 50;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= end) {
-                        stat.textContent = end + suffix;
-                        clearInterval(timer);
-                    } else {
-                        stat.textContent = Math.floor(current) + suffix;
+                const duration = 1500;
+                const startTime = performance.now();
+
+                const animate = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easedProgress = easeOutQuart(progress);
+                    const current = Math.floor(easedProgress * end);
+
+                    stat.textContent = current + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
                     }
-                }, 30);
+                };
+
+                requestAnimationFrame(animate);
             });
         };
 
@@ -679,9 +997,81 @@
                     animateStats();
                     observer.disconnect();
                 }
-            }, { threshold: 0.5 });
+            }, { threshold: 0.3 });
             observer.observe(statsSection.parentElement);
         }
+
+        // Add subtle parallax effect to hero decorative elements
+        document.addEventListener('mousemove', (e) => {
+            const floatElements = document.querySelectorAll('.animate-float');
+            const mouseX = e.clientX / window.innerWidth - 0.5;
+            const mouseY = e.clientY / window.innerHeight - 0.5;
+
+            floatElements.forEach((el, i) => {
+                const speed = (i + 1) * 10;
+                const x = mouseX * speed;
+                const y = mouseY * speed;
+                el.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+
+        // Card tilt effect on mouse move
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // Button ripple effect
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple keyframes dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
